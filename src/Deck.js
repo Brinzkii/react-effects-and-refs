@@ -30,8 +30,6 @@ const Deck = () => {
 		if (deckCount.current > 0) {
 			const res = await axios.get(`https://deckofcardsapi.com/api/deck/${deck.id}/draw/?count=1`);
 
-			console.log(res.data);
-
 			if (res.data.success === true) {
 				deckCount.current = res.data.remaining;
 				let deckCopy = { ...deck };
@@ -45,9 +43,29 @@ const Deck = () => {
 		}
 	};
 
+	const handleShuffle = async (evt) => {
+		evt.target.disabled = true;
+		const res = await axios.get(`https://deckofcardsapi.com/api/deck/${deck.id}/shuffle`);
+
+		if (res.data.success === true) {
+			deckCount.current = res.data.remaining;
+			setDeck({
+				id: res.data.deck_id,
+				cards: [],
+			});
+			evt.target.disabled = false;
+		} else {
+			alert('Error: problem shuffling deck!');
+		}
+	};
+
 	return (
 		<>
-			<button className="DrawBtn" onClick={handleDraw}>
+			<button className="Deck-Shuffle-Btn" onClick={handleShuffle}>
+				Shuffle Deck
+			</button>
+
+			<button className="Deck-Draw-Btn" onClick={handleDraw}>
 				Draw Card
 			</button>
 
