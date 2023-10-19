@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Card from './Card';
 import axios from 'axios';
 import uuid from 'react-uuid';
+import './Deck.css';
 
 const Deck = () => {
 	const deckCount = useRef();

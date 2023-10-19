@@ -1,0 +1,33 @@
+.Deck {
+    position: absolute;
+    height: 600px;
+    width: 600px;
+    left: calc(50vw - 300px);
+    top: 20vh;
+    border-radius: 50%;
+    background:url(
+        data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAAXNSR0IArs4c6QAAAExJREFUKFNjlPP3/8+ABB5t3Mgg5++PLARmMyIrhCnCphiuEF0SnQ9WiMs6ZHFGBgaG/9jcBHMkTDGKGzF8ABUAKSZKIYavcZkIEgcArDYoJSYp/F8AAAAASUVORK5CYII=
+    );
+}
+
+Button {
+    height: 30px;
+    border-radius: .15cm;
+    transition: all .3s ease-in-out;
+}
+
+Button:hover {
+    background-color: #1e4f4f;
+    scale: 1.15;
+    color: white;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+.Deck-Shuffle-Btn {
+    margin-right: 10px;
+}
+
+.Deck-Draw-Btn {
+    margin-left: 10px;
+}
